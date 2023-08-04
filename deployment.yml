@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: position-tracker
-        image: richardchesterwood/k8s-fleetman-position-tracker:release2
+        image: richardchesterwood/k8s-fleetman-position-tracker:release3
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
@@ -102,5 +102,25 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:4
 
 
