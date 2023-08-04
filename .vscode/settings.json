@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "\"yaml.schemaStore.enable\": false"
+    ]
+}
